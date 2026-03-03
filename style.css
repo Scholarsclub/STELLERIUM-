@@ -1,20 +1,39 @@
 /* ================= GLOBAL RESET ================= */
-
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
+    scroll-behavior:smooth;
 }
 
 body{
     font-family:'Poppins', sans-serif;
-    background:black;
-    color:white;
+    background:#000;
+    color:#fff;
     overflow-x:hidden;
 }
 
-/* ================= HEADER ================= */
+/* ================= GLOBAL CONTAINER CONTROL ================= */
+/* Prevents content hiding under fixed navbar */
+main, section{
+    padding-top:100px;
+}
 
+/* ================= FONTS ================= */
+h1,h2,h3,h4{
+    font-family:'Orbitron', sans-serif;
+    font-weight:900;
+    letter-spacing:4px;
+}
+
+p{
+    font-family:'Poppins', sans-serif;
+    font-weight:400;
+    color:#cccccc;
+    line-height:1.7;
+}
+
+/* ================= NAVBAR ================= */
 header{
     position:fixed;
     width:100%;
@@ -22,179 +41,291 @@ header{
     left:0;
     backdrop-filter: blur(15px);
     background:rgba(0,0,0,0.35);
-    border-bottom:1px solid rgba(255,255,255,0.1);
+    border-bottom:1px solid rgba(255,255,255,0.08);
     z-index:1000;
 }
 
 .nav{
-    max-width:1200px;
+    max-width:1400px;
     margin:auto;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:20px 30px; /* SAME SIDE PADDING EVERYWHERE */
+    padding:20px 60px;
 }
 
 .logo{
-    font-family:'Orbitron';
-    font-size:26px;
-    letter-spacing:5px;
+    font-family:'Orbitron', sans-serif;
+    font-size:30px;
     font-weight:900;
+    letter-spacing:6px;
+    text-shadow:0 0 25px rgba(255,255,255,0.4);
 }
 
 nav{
     display:flex;
-    flex-wrap:wrap;
+    align-items:center;
 }
 
 nav a{
-    color:#ddd;
-    margin-left:25px;
+    font-family:'Orbitron', sans-serif;
+    font-weight:600;
+    color:#dddddd;
+    margin-left:35px;
     text-decoration:none;
-    font-family:'Orbitron';
     letter-spacing:2px;
-    font-size:14px;
-    transition:0.3s;
+    transition:0.3s ease;
 }
 
 nav a:hover{
-    color:white;
+    color:#ffffff;
     text-shadow:0 0 15px white;
 }
 
-/* ================= SECTION BASE ================= */
-
-.section{
-    min-height:100vh;
-    padding:140px 30px 80px 30px; /* SAME LEFT & RIGHT */
-}
-
 /* ================= HERO ================= */
-
 .hero{
+    min-height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
     text-align:center;
+    padding:0 20px;
 }
 
 .hero-content{
-    max-width:900px;
+    display:flex;
+    flex-direction:column;
+    gap:30px;
+    align-items:center;
+    max-width:1200px;
 }
 
 .hero h1{
-    font-family:'Orbitron';
-    font-size:clamp(42px,8vw,110px);
-    letter-spacing:8px;
-    line-height:1.1;
+    font-size:clamp(60px,10vw,120px);
+    letter-spacing:12px;
     text-shadow:0 0 60px rgba(255,255,255,0.5);
 }
 
-.hero p{
-    margin-top:20px;
-    font-size:clamp(16px,2.5vw,22px);
-    letter-spacing:2px;
-    color:#ccc;
+.typing{
+    font-size:clamp(18px,2.5vw,24px);
+    letter-spacing:3px;
+    color:#cfcfcf;
+    min-height:40px;
 }
 
 /* ================= BUTTON ================= */
-
 .btn{
-    margin-top:40px;
-    padding:14px 35px;
-    border:1px solid rgba(255,255,255,0.3);
-    background:rgba(0,0,0,0.4);
-    color:white;
-    text-decoration:none;
-    font-family:'Orbitron';
-    letter-spacing:2px;
+    padding:18px 55px;
+    border:1px solid rgba(255,255,255,0.4);
     border-radius:12px;
-    transition:0.4s;
+    text-decoration:none;
+    color:white;
+    font-family:'Orbitron', sans-serif;
+    font-weight:700;
+    letter-spacing:3px;
+    background:rgba(0,0,0,0.4);
+    transition:0.4s ease;
     display:inline-block;
-    font-size:14px;
-    cursor:pointer;
 }
 
 .btn:hover{
     background:white;
     color:black;
     box-shadow:0 0 40px white;
+    transform:translateY(-3px);
 }
 
-/* ================= CARD BASE ================= */
+/* ================= SERVICE SECTIONS ================= */
+.service-section{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding:0 10%;
+    background-size:cover;
+    background-position:center;
+    position:relative;
+}
 
-.card{
+.overlay{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.65);
+    top:0;
+    left:0;
+}
+
+.service-content{
+    position:relative;
+    max-width:600px;
     backdrop-filter:blur(20px);
     background:rgba(255,255,255,0.05);
-    border:1px solid rgba(255,255,255,0.15);
+    padding:45px;
     border-radius:20px;
-    transition:0.4s ease;
+    border:1px solid rgba(255,255,255,0.1);
+    box-shadow:0 0 40px rgba(255,255,255,0.08);
 }
 
-.card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 0 60px rgba(255,255,255,0.4);
+.service-content h1{
+    font-size:42px;
+    margin-bottom:20px;
 }
 
-/* ================= GRID SYSTEM ================= */
+/* ================= GALLERY ================= */
+.gallery-section{
+    padding:140px 8%;
+}
 
-.grid-3{
-    max-width:1200px;
-    margin:auto;
+.gallery-title{
+    text-align:center;
+    font-size:clamp(32px,5vw,50px);
+    margin-bottom:60px;
+}
+
+.gallery-grid{
     display:grid;
-    grid-template-columns:repeat(3, 1fr);
-    gap:30px;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
 }
 
-.grid-2{
-    max-width:1200px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:repeat(2, 1fr);
-    gap:30px;
+.gallery-item{
+    overflow:hidden;
+    border-radius:18px;
+    cursor:pointer;
 }
 
-.grid-1{
-    max-width:1200px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:1fr;
-    gap:30px;
+.gallery-item img{
+    width:100%;
+    height:280px;
+    object-fit:cover;
+    transition:0.5s ease;
+    border:1px solid rgba(255,255,255,0.08);
 }
 
-/* ================= RESPONSIVE ================= */
+.gallery-item img:hover{
+    transform:scale(1.08);
+    filter:brightness(1.2);
+    box-shadow:0 0 40px rgba(255,255,255,0.25);
+}
 
-@media (max-width: 992px){
+/* ================= CONTACT ================= */
+.contact-section{
+    padding:160px 8%;
+    display:flex;
+    justify-content:center;
+}
 
-    .grid-3{
-        grid-template-columns:repeat(2, 1fr);
+.contact-card{
+    max-width:800px;
+    width:100%;
+    backdrop-filter:blur(20px);
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.12);
+    border-radius:25px;
+    padding:60px;
+    text-align:center;
+    box-shadow:0 0 60px rgba(255,255,255,0.08);
+}
+
+.contact-title{
+    font-size:clamp(28px,4vw,38px);
+    margin-bottom:20px;
+}
+
+.value{
+    font-family:'Orbitron', sans-serif;
+    font-weight:700;
+    font-size:24px;
+    text-shadow:0 0 10px rgba(255,255,255,0.3);
+}
+
+/* ================= FOOTER ================= */
+footer{
+    text-align:center;
+    padding:60px;
+    border-top:1px solid rgba(255,255,255,0.08);
+    color:#777;
+    letter-spacing:2px;
+    background:#000;
+}
+
+/* ================= RESPONSIVE BREAKPOINTS ================= */
+
+/* Tablet */
+@media(max-width:1024px){
+
+    .nav{
+        padding:20px 30px;
     }
 
     nav a{
-        margin-left:15px;
-        font-size:12px;
+        margin-left:20px;
     }
+
+    .service-section{
+        padding:0 6%;
+    }
+
 }
 
-@media (max-width: 600px){
+/* Mobile */
+@media(max-width:768px){
 
     .nav{
         flex-direction:column;
         gap:15px;
-        padding:20px 30px;
+        padding:20px;
     }
 
     nav{
+        flex-wrap:wrap;
         justify-content:center;
-        gap:10px;
+        gap:15px;
     }
 
     nav a{
         margin-left:0;
+        font-size:13px;
     }
 
-    .grid-3,
-    .grid-2{
-        grid-template-columns:1fr;
+    .hero h1{
+        font-size:clamp(36px,10vw,60px);
+        letter-spacing:6px;
     }
+
+    .service-content{
+        padding:30px;
+    }
+
+    .contact-card{
+        padding:35px;
+    }
+
+    .gallery-item img{
+        height:220px;
+    }
+
+}
+
+/* Small Phones */
+@media(max-width:480px){
+
+    .hero{
+        padding:0 15px;
+    }
+
+    .hero h1{
+        font-size:32px;
+        letter-spacing:4px;
+    }
+
+    .typing{
+        font-size:16px;
+    }
+
+    .btn{
+        padding:14px 30px;
+        font-size:13px;
+    }
+
 }
