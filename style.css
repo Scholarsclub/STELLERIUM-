@@ -676,7 +676,17 @@ canvas{
         padding: 0 10px;
         word-break: break-word;
     }
+/* ===== MOBILE HERO TITLE SIZE ===== */
+@media (max-width: 768px) {
+
+    .hero h1{
+        font-size: 34px;   /* change this value if you want smaller/bigger */
+        letter-spacing: 3px;
+        line-height: 1.1;
+    }
 
 }
+}
+
 
 
