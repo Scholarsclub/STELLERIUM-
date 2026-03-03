@@ -13,6 +13,11 @@ body{
     overflow-x:hidden;
 }
 
+/* Prevent content hiding under navbar */
+section{
+    padding-top:100px;
+}
+
 /* ================= NAVBAR ================= */
 header{
     position:fixed;
@@ -61,32 +66,6 @@ nav a:hover{
     text-shadow:0 0 15px white;
 }
 
-/* ================= CINEMATIC BACKGROUND ================= */
-.video-bg{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    z-index:-3;
-}
-
-.overlay{
-    position:fixed;
-    width:100%;
-    height:100%;
-    background:radial-gradient(circle at center, rgba(0,0,0,0.4), rgba(0,0,0,0.95));
-    z-index:-2;
-}
-
-canvas{
-    position:fixed;
-    top:0;
-    left:0;
-    z-index:-1;
-}
-
 /* ================= HERO ================= */
 .hero{
     min-height:100vh;
@@ -102,10 +81,11 @@ canvas{
     flex-direction:column;
     gap:30px;
     align-items:center;
+    max-width:1200px;
 }
 
 .hero h1{
-    font-family:'Orbitron', sans-serif;
+    font-family:'Orbitron';
     font-size:clamp(60px,10vw,120px);
     letter-spacing:12px;
     text-shadow:0 0 60px rgba(255,255,255,0.5);
@@ -140,34 +120,6 @@ canvas{
     transform:translateY(-3px);
 }
 
-/* ================= FLOATING ================= */
-.floating{
-    position:relative;
-    margin-top:40px;
-    width:100%;
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    flex-wrap:wrap;
-    padding:0 20px 60px 20px;
-}
-
-.glass{
-    backdrop-filter:blur(20px);
-    background:rgba(255,255,255,0.05);
-    border:1px solid rgba(255,255,255,0.12);
-    padding:18px 28px;
-    border-radius:16px;
-    font-family:'Orbitron';
-    letter-spacing:2px;
-    transition:0.4s;
-}
-
-.glass:hover{
-    transform:translateY(-8px);
-    box-shadow:0 0 30px rgba(255,255,255,0.25);
-}
-
 /* ================= STATS ================= */
 .stats{
     padding:120px 20px;
@@ -183,11 +135,135 @@ canvas{
 }
 
 .stat h3{
+    font-family:'Orbitron';
     font-size:70px;
 }
 
-/* ================= MOBILE FIX ================= */
-@media (max-width:768px){
+/* ================= SERVICES ================= */
+.service-section{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background-size:cover;
+    background-position:center;
+    padding:120px 10%;
+    position:relative;
+}
+
+.service-section::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.65);
+}
+
+.service-content{
+    position:relative;
+    max-width:600px;
+    backdrop-filter:blur(20px);
+    background:rgba(255,255,255,0.05);
+    padding:50px;
+    border-radius:20px;
+    border:1px solid rgba(255,255,255,0.1);
+    box-shadow:0 0 40px rgba(255,255,255,0.08);
+}
+
+.service-content h1{
+    font-family:'Orbitron';
+    font-size:42px;
+    margin-bottom:20px;
+    letter-spacing:3px;
+}
+
+.service-content p{
+    font-size:18px;
+    line-height:1.7;
+    color:#ccc;
+}
+
+/* ================= GALLERY ================= */
+.gallery-section{
+    padding:140px 8%;
+}
+
+.gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
+
+.gallery-item img{
+    width:100%;
+    height:280px;
+    object-fit:cover;
+    border-radius:18px;
+    transition:0.4s;
+}
+
+.gallery-item img:hover{
+    transform:scale(1.05);
+}
+
+/* ================= PRICING ================= */
+.pricing-section{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:160px 8%;
+}
+
+.pricing-card{
+    max-width:520px;
+    width:100%;
+    text-align:center;
+    backdrop-filter:blur(20px);
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.12);
+    border-radius:25px;
+    padding:60px;
+}
+
+.price{
+    font-family:'Orbitron';
+    font-size:clamp(48px,8vw,85px);
+    margin:20px 0;
+}
+
+/* ================= CONTACT ================= */
+.contact-section{
+    padding:140px 8%;
+    display:flex;
+    justify-content:center;
+}
+
+.contact-card{
+    max-width:800px;
+    width:100%;
+    backdrop-filter:blur(20px);
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.12);
+    border-radius:25px;
+    padding:60px;
+    text-align:center;
+}
+
+.value{
+    font-family:'Orbitron';
+    font-size:24px;
+}
+
+/* ================= FOOTER ================= */
+footer{
+    text-align:center;
+    padding:60px;
+    border-top:1px solid rgba(255,255,255,0.08);
+    color:#777;
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:768px){
 
     .nav{
         flex-direction:column;
@@ -206,9 +282,9 @@ canvas{
         font-size:14px;
     }
 
-    /* HERO TITLE FIX */
+    /* HERO FIX */
     .hero h1{
-        font-size:34px;   /* reduced mobile size */
+        font-size:34px;
         letter-spacing:4px;
         line-height:1.1;
     }
@@ -224,5 +300,25 @@ canvas{
 
     .stat h3{
         font-size:48px;
+    }
+
+    /* SERVICES MOBILE */
+    .service-section{
+        min-height:auto;
+        padding:120px 20px 80px 20px;
+    }
+
+    .service-content{
+        width:100%;
+        padding:25px;
+    }
+
+    .service-content h1{
+        font-size:24px;
+        letter-spacing:1px;
+    }
+
+    .service-content p{
+        font-size:14px;
     }
 }
