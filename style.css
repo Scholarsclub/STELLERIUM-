@@ -329,6 +329,27 @@ footer{
     }
 
 }
+@media(max-width:768px){
+
+    .nav{
+        flex-direction:column;
+        gap:15px;
+        padding:15px 20px;
+    }
+
+    nav{
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:15px;
+    }
+
+    nav a{
+        margin:0;
+        font-size:14px;
+    }
+
+}
 
 /* ================= PRICING ================= */
 
@@ -596,13 +617,14 @@ canvas{
 
 /* FLOATING */
 .floating{
-    position:absolute;
-    bottom:60px;
+    position:relative;
+    margin-top:40px;
     width:100%;
     display:flex;
     justify-content:center;
-    gap:30px;
+    gap:20px;
     flex-wrap:wrap;
+    padding:0 20px 60px 20px;
 }
 
 .glass{
@@ -644,4 +666,5 @@ canvas{
 .stat h3{
     font-size:70px;
 }
+
 
