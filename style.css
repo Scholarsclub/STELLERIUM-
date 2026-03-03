@@ -329,3 +329,56 @@ footer{
     }
 
 }
+/* ================= PRICING ================= */
+
+.pricing-section{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:160px 8%;
+}
+
+.pricing-card{
+    max-width:520px;
+    width:100%;
+    text-align:center;
+    backdrop-filter:blur(20px);
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.12);
+    border-radius:25px;
+    padding:60px;
+    box-shadow:0 0 60px rgba(255,255,255,0.08);
+    transition:0.4s ease;
+}
+
+.pricing-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 60px rgba(255,255,255,0.4);
+}
+
+.sub{
+    letter-spacing:3px;
+    color:#aaa;
+    font-size:14px;
+}
+
+.price{
+    font-family:'Orbitron', sans-serif;
+    font-size:clamp(48px,8vw,85px);
+    margin:20px 0;
+    text-shadow:0 0 50px rgba(255,255,255,0.6);
+}
+
+.features p{
+    margin:12px 0;
+    font-size:14px;
+    letter-spacing:1px;
+}
+
+@media(max-width:768px){
+    .pricing-card{
+        padding:35px;
+    }
+}
+
