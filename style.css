@@ -1,33 +1,20 @@
-/* ===== GLOBAL RESET ===== */
+/* ================= GLOBAL RESET ================= */
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    scroll-behavior:smooth;
 }
 
 body{
     font-family:'Poppins', sans-serif;
-    background:#000;
-    color:#fff;
+    background:black;
+    color:white;
     overflow-x:hidden;
 }
 
-/* ===== FONTS (CONSISTENT BRANDING) ===== */
-h1,h2,h3,h4{
-    font-family:'Orbitron', sans-serif;
-    font-weight:900; /* FIXES THIN FONT ISSUE */
-    letter-spacing:4px;
-}
+/* ================= HEADER ================= */
 
-p{
-    font-family:'Poppins', sans-serif;
-    font-weight:400;
-    color:#cccccc;
-    line-height:1.7;
-}
-
-/* ===== NAVBAR (SAME FOR ALL PAGES) ===== */
 header{
     position:fixed;
     width:100%;
@@ -35,225 +22,179 @@ header{
     left:0;
     backdrop-filter: blur(15px);
     background:rgba(0,0,0,0.35);
-    border-bottom:1px solid rgba(255,255,255,0.08);
+    border-bottom:1px solid rgba(255,255,255,0.1);
     z-index:1000;
 }
 
 .nav{
+    max-width:1200px;
+    margin:auto;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:20px 60px;
+    padding:20px 30px; /* SAME SIDE PADDING EVERYWHERE */
 }
 
 .logo{
-    font-family:'Orbitron', sans-serif;
-    font-size:30px;
-    font-weight:900; /* THICK LOGO */
-    letter-spacing:6px;
-    text-shadow:0 0 25px rgba(255,255,255,0.4);
+    font-family:'Orbitron';
+    font-size:26px;
+    letter-spacing:5px;
+    font-weight:900;
+}
+
+nav{
+    display:flex;
+    flex-wrap:wrap;
 }
 
 nav a{
-    font-family:'Orbitron', sans-serif;
-    font-weight:600; /* FIXES THIN NAV TEXT */
-    color:#dddddd;
-    margin-left:35px;
+    color:#ddd;
+    margin-left:25px;
     text-decoration:none;
+    font-family:'Orbitron';
     letter-spacing:2px;
-    transition:0.3s ease;
+    font-size:14px;
+    transition:0.3s;
 }
 
 nav a:hover{
-    color:#ffffff;
+    color:white;
     text-shadow:0 0 15px white;
 }
 
-/* ===== HERO SECTION (HOME) ===== */
+/* ================= SECTION BASE ================= */
+
+.section{
+    min-height:100vh;
+    padding:140px 30px 80px 30px; /* SAME LEFT & RIGHT */
+}
+
+/* ================= HERO ================= */
+
 .hero{
-    height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
     text-align:center;
-    padding:0 20px;
 }
 
 .hero-content{
-    display:flex;
-    flex-direction:column;
-    gap:30px;
-    align-items:center;
+    max-width:900px;
 }
 
 .hero h1{
-    font-size:clamp(60px,10vw,120px);
-    letter-spacing:12px;
+    font-family:'Orbitron';
+    font-size:clamp(42px,8vw,110px);
+    letter-spacing:8px;
+    line-height:1.1;
     text-shadow:0 0 60px rgba(255,255,255,0.5);
 }
 
-.typing{
-    font-size:24px;
-    letter-spacing:3px;
-    color:#cfcfcf;
-    min-height:40px;
+.hero p{
+    margin-top:20px;
+    font-size:clamp(16px,2.5vw,22px);
+    letter-spacing:2px;
+    color:#ccc;
 }
 
-/* ===== BUTTON (GLOBAL) ===== */
+/* ================= BUTTON ================= */
+
 .btn{
-    padding:18px 55px;
-    border:1px solid rgba(255,255,255,0.4);
-    border-radius:12px;
-    text-decoration:none;
-    color:white;
-    font-family:'Orbitron', sans-serif;
-    font-weight:700;
-    letter-spacing:3px;
+    margin-top:40px;
+    padding:14px 35px;
+    border:1px solid rgba(255,255,255,0.3);
     background:rgba(0,0,0,0.4);
-    transition:0.4s ease;
+    color:white;
+    text-decoration:none;
+    font-family:'Orbitron';
+    letter-spacing:2px;
+    border-radius:12px;
+    transition:0.4s;
+    display:inline-block;
+    font-size:14px;
+    cursor:pointer;
 }
 
 .btn:hover{
     background:white;
     color:black;
     box-shadow:0 0 40px white;
-    transform:translateY(-3px);
 }
 
-/* ===== SERVICES CINEMATIC SECTIONS ===== */
-.service-section{
-    height:100vh;
-    display:flex;
-    align-items:center;
-    padding:0 10%;
-    background-size:cover;
-    background-position:center;
-    position:relative;
-}
+/* ================= CARD BASE ================= */
 
-.overlay{
-    position:absolute;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.65);
-    top:0;
-    left:0;
-}
-
-.service-content{
-    position:relative;
-    max-width:600px;
+.card{
     backdrop-filter:blur(20px);
     background:rgba(255,255,255,0.05);
-    padding:45px;
+    border:1px solid rgba(255,255,255,0.15);
     border-radius:20px;
-    border:1px solid rgba(255,255,255,0.1);
-    box-shadow:0 0 40px rgba(255,255,255,0.08);
+    transition:0.4s ease;
 }
 
-.service-content h1{
-    font-size:42px;
-    margin-bottom:20px;
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 60px rgba(255,255,255,0.4);
 }
 
-/* ===== GALLERY GRID ===== */
-.gallery-section{
-    padding:120px 8%;
-}
+/* ================= GRID SYSTEM ================= */
 
-.gallery-title{
-    text-align:center;
-    font-size:50px;
-    margin-bottom:60px;
-}
-
-.gallery-grid{
+.grid-3{
+    max-width:1200px;
+    margin:auto;
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:25px;
+    grid-template-columns:repeat(3, 1fr);
+    gap:30px;
 }
 
-.gallery-item{
-    overflow:hidden;
-    border-radius:18px;
-    cursor:pointer;
+.grid-2{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:30px;
 }
 
-.gallery-item img{
-    width:100%;
-    height:280px;
-    object-fit:cover;
-    transition:0.5s ease;
-    border:1px solid rgba(255,255,255,0.08);
+.grid-1{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1fr;
+    gap:30px;
 }
 
-.gallery-item img:hover{
-    transform:scale(1.08);
-    filter:brightness(1.2);
-    box-shadow:0 0 40px rgba(255,255,255,0.25);
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 992px){
+
+    .grid-3{
+        grid-template-columns:repeat(2, 1fr);
+    }
+
+    nav a{
+        margin-left:15px;
+        font-size:12px;
+    }
 }
 
-/* ===== CONTACT CARD ===== */
-.contact-section{
-    padding:140px 8%;
-    display:flex;
-    justify-content:center;
-}
+@media (max-width: 600px){
 
-.contact-card{
-    max-width:800px;
-    width:100%;
-    backdrop-filter:blur(20px);
-    background:rgba(255,255,255,0.05);
-    border:1px solid rgba(255,255,255,0.12);
-    border-radius:25px;
-    padding:60px;
-    text-align:center;
-    box-shadow:0 0 60px rgba(255,255,255,0.08);
-}
-
-.contact-title{
-    font-size:38px;
-    margin-bottom:20px;
-}
-
-.info-box{
-    margin:25px 0;
-}
-
-.value{
-    font-family:'Orbitron', sans-serif;
-    font-weight:700;
-    font-size:24px;
-    text-shadow:0 0 10px rgba(255,255,255,0.3);
-}
-
-/* ===== FOOTER ===== */
-footer{
-    text-align:center;
-    padding:60px;
-    border-top:1px solid rgba(255,255,255,0.08);
-    color:#777;
-    letter-spacing:2px;
-    background:#000;
-}
-
-/* ===== RESPONSIVE ===== */
-@media(max-width:768px){
     .nav{
-        padding:15px 20px;
+        flex-direction:column;
+        gap:15px;
+        padding:20px 30px;
     }
 
-    .hero h1{
-        font-size:50px;
-        letter-spacing:6px;
+    nav{
+        justify-content:center;
+        gap:10px;
     }
 
-    .service-content{
-        padding:30px;
+    nav a{
+        margin-left:0;
     }
 
-    .contact-card{
-        padding:35px;
+    .grid-3,
+    .grid-2{
+        grid-template-columns:1fr;
     }
 }
