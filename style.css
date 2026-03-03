@@ -253,4 +253,33 @@ canvas{
     }
 
 }
+/* ================= FINAL SERVICES MOBILE FIX ================= */
+@media (max-width:768px){
+
+    .service-section{
+        min-height:auto !important;
+        padding:120px 20px 80px 20px !important;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+    }
+
+    .service-content{
+        width:100%;
+        max-width:100%;
+        padding:20px !important;
+    }
+
+    .service-content h1{
+        font-size:22px !important;
+        letter-spacing:1px !important;
+        line-height:1.2;
+    }
+
+    .service-content p{
+        font-size:14px;
+        line-height:1.6;
+    }
+
+}
 
