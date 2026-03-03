@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>STELLERIUM | Gallery</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | STELLERIUM</title>
 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
+    <!-- Main Stylesheet -->
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -24,41 +28,58 @@
     </div>
 </header>
 
-<section class="gallery-section">
+<!-- HERO -->
+<section class="gallery-hero">
+    <h1>GALLERY</h1>
+</section>
 
-    <h1>OUR WORK</h1>
+<!-- GALLERY GRID -->
+<section class="gallery-section reveal">
+    <h2 class="gallery-title">OUR PROJECTION WORK</h2>
 
     <div class="gallery-grid">
-        <!-- Replace image paths with your actual images -->
-        <div class="gallery-item">
-            <img src="images/gallery1.jpg" alt="Projection Mapping 1">
-        </div>
-
-        <div class="gallery-item">
-            <img src="images/gallery2.jpg" alt="Projection Mapping 2">
-        </div>
-
-        <div class="gallery-item">
-            <img src="images/gallery3.jpg" alt="Projection Mapping 3">
-        </div>
-
-        <div class="gallery-item">
-            <img src="images/gallery4.jpg" alt="Projection Mapping 4">
-        </div>
-
-        <div class="gallery-item">
-            <img src="images/gallery5.jpg" alt="Projection Mapping 5">
-        </div>
-
-        <div class="gallery-item">
-            <img src="images/gallery6.jpg" alt="Projection Mapping 6">
-        </div>
+        <div class="gallery-item"><img src="images/service1.jpg" onclick="openLightbox(this.src)"></div>
+        <div class="gallery-item"><img src="images/service2.jpg" onclick="openLightbox(this.src)"></div>
+        <div class="gallery-item"><img src="images/service3.jpg" onclick="openLightbox(this.src)"></div>
+        <div class="gallery-item"><img src="images/service4.jpg" onclick="openLightbox(this.src)"></div>
+        <div class="gallery-item"><img src="images/service5.jpg" onclick="openLightbox(this.src)"></div>
+        <div class="gallery-item"><img src="images/service6.jpg" onclick="openLightbox(this.src)"></div>
+        <div class="gallery-item"><img src="images/service7.jpg" onclick="openLightbox(this.src)"></div>
+        <div class="gallery-item"><img src="images/service8.jpg" onclick="openLightbox(this.src)"></div>
+        <div class="gallery-item"><img src="images/service9.jpg" onclick="openLightbox(this.src)"></div>
     </div>
-
 </section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+    <span class="close" onclick="closeLightbox()">×</span>
+    <img id="lightbox-img">
+</div>
+
+<footer>
+    © 2026 STELLERIUM — IMMERSIVE VISUAL GALLERY
+</footer>
+
+<script>
+function openLightbox(src){
+    document.getElementById("lightbox").style.display="flex";
+    document.getElementById("lightbox-img").src=src;
+}
+
+function closeLightbox(){
+    document.getElementById("lightbox").style.display="none";
+}
+
+const reveals=document.querySelectorAll(".reveal");
+window.addEventListener("scroll",()=>{
+    reveals.forEach(r=>{
+        let top=r.getBoundingClientRect().top;
+        if(top<window.innerHeight-100){
+            r.classList.add("active");
+        }
+    });
+});
+</script>
 
 </body>
 </html>
-
-
-
