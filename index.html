@@ -1,17 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>STELLERIUM | Futuristic Projection Mapping</title>
 
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
+    <!-- Main Stylesheet -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+<!-- SCROLL PROGRESS -->
+<div id="progressBar"></div>
+
+<!-- CURSOR GLOW -->
+<div class="cursor-glow" id="glow"></div>
+
+<!-- VIDEO BACKGROUND -->
+<video autoplay muted loop playsinline class="video-bg">
+    <source src="BG1.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+<canvas id="stars"></canvas>
+
+<!-- NAVBAR -->
 <header>
     <div class="nav">
         <div class="logo">STELLERIUM</div>
@@ -25,15 +43,166 @@
     </div>
 </header>
 
+<!-- HERO SECTION -->
 <section class="hero">
     <div class="hero-content">
         <h1>STELLERIUM</h1>
-        <p>Immersive Projection • Dome Mapping • 360° Spatial Visual Experiences</p>
-        <a href="pricing.html" class="btn">VIEW PRICING</a>
+        <div class="typing" id="typing"></div>
+        <a href="services.html" class="btn">ENTER EXPERIENCE</a>
     </div>
 </section>
 
+<!-- FLOATING TAGS -->
+<div class="floating">
+    <div class="glass">DOME MAPPING</div>
+    <div class="glass">360° IMMERSIVE</div>
+    <div class="glass">SPATIAL PROJECTION</div>
+</div>
+
+<!-- STATS SECTION -->
+<section class="stats reveal">
+    <h2>GLOBAL IMPACT</h2>
+    <div class="stat-grid">
+        <div class="stat">
+            <h3 id="count1">0</h3>
+            <p>INSTALLATIONS</p>
+        </div>
+        <div class="stat">
+            <h3 id="count2">0</h3>
+            <p>EVENTS</p>
+        </div>
+        <div class="stat">
+            <h3 id="count3">0</h3>
+            <p>COUNTRIES</p>
+        </div>
+    </div>
+</section>
+
+<script>
+
+/* ================= SCROLL PROGRESS ================= */
+window.addEventListener("scroll",()=>{
+    let scrollTop=document.documentElement.scrollTop;
+    let height=document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    let scrolled=(scrollTop/height)*100;
+    document.getElementById("progressBar").style.width=scrolled+"%";
+});
+
+/* ================= STARFIELD ================= */
+const canvas=document.getElementById("stars");
+const ctx=canvas.getContext("2d");
+
+function resizeCanvas(){
+    canvas.width=window.innerWidth;
+    canvas.height=window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener("resize", resizeCanvas);
+
+let stars=[];
+for(let i=0;i<180;i++){
+    stars.push({
+        x:Math.random()*window.innerWidth,
+        y:Math.random()*window.innerHeight,
+        r:Math.random()*2
+    });
+}
+
+function animateStars(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.fillStyle="white";
+
+    stars.forEach(s=>{
+        ctx.beginPath();
+        ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+        ctx.fill();
+        s.y+=0.25;
+        if(s.y>canvas.height){s.y=0;}
+    });
+
+    requestAnimationFrame(animateStars);
+}
+animateStars();
+
+/* ================= MOUSE GLOW ================= */
+document.addEventListener("mousemove",(e)=>{
+    const glow=document.getElementById("glow");
+    glow.style.left=e.clientX+"px";
+    glow.style.top=e.clientY+"px";
+});
+
+/* ================= TYPING EFFECT ================= */
+const texts=[
+    "IMMERSIVE PROJECTION",
+    "DOME MAPPING",
+    "360° SPATIAL VISUALS",
+    "CINEMATIC INSTALLATIONS"
+];
+
+let i=0,j=0,current="";
+
+function type(){
+    if(j<texts[i].length){
+        current+=texts[i][j];
+        document.getElementById("typing").innerHTML=current;
+        j++;
+        setTimeout(type,60);
+    }else{
+        setTimeout(()=>{
+            current="";
+            j=0;
+            i=(i+1)%texts.length;
+            type();
+        },1500);
+    }
+}
+type();
+
+/* ================= MAGNETIC BUTTON ================= */
+const btn=document.querySelector(".btn");
+
+btn.addEventListener("mousemove",(e)=>{
+    const rect=btn.getBoundingClientRect();
+    const x=e.clientX-rect.left-rect.width/2;
+    const y=e.clientY-rect.top-rect.height/2;
+    btn.style.transform=`translate(${x*0.15}px, ${y*0.15}px)`;
+});
+
+btn.addEventListener("mouseleave",()=>{
+    btn.style.transform="translate(0,0)";
+});
+
+/* ================= COUNTERS ================= */
+function animateCount(id,target){
+    let count=0;
+    let inc=target/100;
+    let interval=setInterval(()=>{
+        count+=inc;
+        if(count>=target){
+            count=target;
+            clearInterval(interval);
+        }
+        document.getElementById(id).innerText=Math.floor(count)+"+";
+    },20);
+}
+
+animateCount("count1",120);
+animateCount("count2",350);
+animateCount("count3",18);
+
+/* ================= SCROLL REVEAL ================= */
+const reveals=document.querySelectorAll(".reveal");
+
+window.addEventListener("scroll",()=>{
+    reveals.forEach(r=>{
+        let top=r.getBoundingClientRect().top;
+        if(top<window.innerHeight-100){
+            r.classList.add("active");
+        }
+    });
+});
+
+</script>
+
 </body>
 </html>
-
-
