@@ -1,88 +1,170 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Services | STELLERIUM</title>
+    <title>STELLERIUM | Services</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+
     <style>
-        *{margin:0;padding:0;box-sizing:border-box;}
-        body{
-            font-family:'Poppins',sans-serif;
-            color:white;
-            background:black;
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
         }
+
+        body{
+            font-family:'Poppins', sans-serif;
+            background:black;
+            color:white;
+            overflow-x:hidden;
+        }
+
+        /* ================= HEADER ================= */
 
         header{
             position:fixed;
             width:100%;
             top:0;
+            left:0;
             backdrop-filter: blur(15px);
-            background:rgba(0,0,0,0.4);
+            background:rgba(0,0,0,0.35);
+            border-bottom:1px solid rgba(255,255,255,0.1);
             z-index:1000;
         }
 
         .nav{
+            max-width:1200px;
+            margin:auto;
             display:flex;
             justify-content:space-between;
-            padding:20px 60px;
+            align-items:center;
+            padding:20px 30px; /* SAME SIDE PADDING */
         }
 
         .logo{
             font-family:'Orbitron';
-            font-size:28px;
-            letter-spacing:6px;
+            font-size:26px;
+            letter-spacing:5px;
+            font-weight:900;
+        }
+
+        nav{
+            display:flex;
+            flex-wrap:wrap;
         }
 
         nav a{
             color:#ddd;
-            margin-left:30px;
+            margin-left:25px;
             text-decoration:none;
             font-family:'Orbitron';
+            letter-spacing:2px;
+            font-size:14px;
+            transition:0.3s;
         }
 
-        .service-section{
-            height:100vh;
-            display:flex;
-            align-items:center;
-            padding:0 10%;
-            background-size:cover;
-            background-position:center;
-            position:relative;
+        nav a:hover{
+            color:white;
+            text-shadow:0 0 15px white;
         }
 
-        .overlay{
-            position:absolute;
-            width:100%;
-            height:100%;
-            background:rgba(0,0,0,0.6);
-            top:0;
-            left:0;
+        /* ================= SERVICES SECTION ================= */
+
+        .services-section{
+            min-height:100vh;
+            padding:140px 30px 80px 30px; /* SAME LEFT & RIGHT */
         }
 
-        .service-content{
-            position:relative;
-            max-width:600px;
-            backdrop-filter:blur(15px);
-            background:rgba(255,255,255,0.05);
-            padding:40px;
-            border-radius:20px;
-            border:1px solid rgba(255,255,255,0.1);
-        }
-
-        h1{
+        .services-section h1{
+            text-align:center;
             font-family:'Orbitron';
-            font-size:48px;
-            margin-bottom:20px;
-            letter-spacing:3px;
+            font-size:clamp(32px,5vw,60px);
+            letter-spacing:6px;
+            margin-bottom:60px;
         }
 
-        p{
-            color:#ccc;
-            line-height:1.7;
-            font-size:18px;
+        .services-grid{
+            max-width:1200px;
+            margin:auto;
+            display:grid;
+            grid-template-columns:repeat(3, 1fr);
+            gap:30px;
         }
+
+        .service-card{
+            backdrop-filter:blur(20px);
+            background:rgba(255,255,255,0.05);
+            border:1px solid rgba(255,255,255,0.15);
+            padding:40px 30px;
+            border-radius:20px;
+            text-align:center;
+            transition:0.4s ease;
+        }
+
+        .service-card:hover{
+            transform:translateY(-8px);
+            box-shadow:0 0 50px rgba(255,255,255,0.4);
+        }
+
+        .service-card h2{
+            font-family:'Orbitron';
+            font-size:20px;
+            letter-spacing:3px;
+            margin-bottom:20px;
+        }
+
+        .service-card p{
+            font-size:14px;
+            line-height:1.7;
+            color:#ccc;
+        }
+
+        /* ================= TABLET ================= */
+
+        @media (max-width: 992px){
+            .services-grid{
+                grid-template-columns:repeat(2, 1fr);
+            }
+
+            nav a{
+                margin-left:15px;
+                font-size:12px;
+            }
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 600px){
+
+            .nav{
+                flex-direction:column;
+                gap:15px;
+                padding:20px 30px;
+            }
+
+            nav{
+                justify-content:center;
+                gap:10px;
+            }
+
+            nav a{
+                margin-left:0;
+            }
+
+            .services-grid{
+                grid-template-columns:1fr;
+            }
+
+            .service-card{
+                padding:30px 20px;
+            }
+        }
+
     </style>
 </head>
+
 <body>
 
 <header>
@@ -92,58 +174,44 @@
             <a href="index.html">HOME</a>
             <a href="services.html">SERVICES</a>
             <a href="gallery.html">GALLERY</a>
-            <a href="contact.html">CONTACT</a>
             <a href="pricing.html">PRICING</a>
+            <a href="contact.html">CONTACT</a>
         </nav>
     </div>
 </header>
 
-<section class="service-section" style="background-image:url('images/service1.jpg')">
-<div class="overlay"></div>
-<div class="service-content">
-<h1>DOME PROJECTION MAPPING</h1>
-<p>Immersive dome experiences with high-end spatial visuals designed for exhibitions, planetariums, and immersive installations.</p>
-</div>
-</section>
+<section class="services-section">
 
-<section class="service-section" style="background-image:url('images/service2.jpg')">
-<div class="overlay"></div>
-<div class="service-content">
-<h1>360° IMMERSIVE MAPPING</h1>
-<p>Full 360-degree projection environments creating cinematic visual storytelling experiences.</p>
-</div>
-</section>
+    <h1>OUR SERVICES</h1>
 
-<section class="service-section" style="background-image:url('images/service3.jpg')">
-<div class="overlay"></div>
-<div class="service-content">
-<h1>270° PANORAMIC MAPPING</h1>
-<p>Advanced panoramic mapping for museums, tech installations, and immersive spaces.</p>
-</div>
-</section>
+    <div class="services-grid">
 
-<section class="service-section" style="background-image:url('images/service4.jpg')">
-<div class="overlay"></div>
-<div class="service-content">
-<h1>ARCHITECTURAL MAPPING</h1>
-<p>Large-scale projection mapping on buildings and complex structures with cinematic precision.</p>
-</div>
-</section>
+        <div class="service-card">
+            <h2>DOME MAPPING</h2>
+            <p>
+                Immersive full-dome projection experiences designed for planetariums, 
+                exhibitions, and large-scale installations.
+            </p>
+        </div>
 
-<section class="service-section" style="background-image:url('images/service5.jpg')">
-<div class="overlay"></div>
-<div class="service-content">
-<h1>INTERACTIVE INSTALLATIONS</h1>
-<p>Sensor-based projection experiences for exhibitions, events, and digital environments.</p>
-</div>
-</section>
+        <div class="service-card">
+            <h2>360° IMMERSIVE</h2>
+            <p>
+                Spatial projection systems that transform entire rooms into 
+                cinematic storytelling environments.
+            </p>
+        </div>
 
-<section class="service-section" style="background-image:url('images/service6.jpg')">
-<div class="overlay"></div>
-<div class="service-content">
-<h1>CINEMATIC EVENT VISUALS</h1>
-<p>Luxury projection visuals for events, product launches, and immersive shows.</p>
-</div>
+        <div class="service-card">
+            <h2>SPATIAL PROJECTION</h2>
+            <p>
+                Advanced projection mapping tailored to architecture, 
+                events, concerts, and experiential marketing campaigns.
+            </p>
+        </div>
+
+    </div>
+
 </section>
 
 </body>
