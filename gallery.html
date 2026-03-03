@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gallery | STELLERIUM</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;}
+
+        body{
+            font-family:'Poppins', sans-serif;
+            background:black;
+            color:white;
+            overflow-x:hidden;
+        }
+
+        /* NAVBAR (MATCH HOMEPAGE) */
+        header{
+            position:fixed;
+            width:100%;
+            top:0;
+            backdrop-filter: blur(15px);
+            background:rgba(0,0,0,0.35);
+            border-bottom:1px solid rgba(255,255,255,0.1);
+            z-index:1000;
+        }
+
+        .nav{
+            display:flex;
+            justify-content:space-between;
+            padding:22px 60px;
+            align-items:center;
+        }
+
+        .logo{
+            font-family:'Orbitron';
+            font-size:30px;
+            letter-spacing:6px;
+            font-weight:900;
+            text-shadow:0 0 20px rgba(255,255,255,0.4);
+        }
+
+        nav a{
+            color:#ddd;
+            margin-left:35px;
+            text-decoration:none;
+            font-family:'Orbitron';
+            letter-spacing:2px;
+            transition:0.3s;
+        }
+
+        nav a:hover{
+            color:white;
+            text-shadow:0 0 15px white;
+        }
+
+        /* HERO */
+        .hero{
+            height:55vh;
+            background:
+            linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.95)),
+            url('images/service8.jpg');
+            background-size:cover;
+            background-position:center;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            text-align:center;
+        }
+
+        .hero h1{
+            font-family:'Orbitron';
+            font-size:90px;
+            letter-spacing:12px;
+            text-shadow:0 0 50px rgba(255,255,255,0.4);
+        }
+
+        /* GALLERY SECTION */
+        .gallery-section{
+            padding:120px 8%;
+        }
+
+        .gallery-title{
+            text-align:center;
+            font-family:'Orbitron';
+            font-size:50px;
+            letter-spacing:6px;
+            margin-bottom:60px;
+        }
+
+        .gallery-grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+            gap:25px;
+        }
+
+        .gallery-item{
+            position:relative;
+            overflow:hidden;
+            border-radius:18px;
+            cursor:pointer;
+        }
+
+        .gallery-item img{
+            width:100%;
+            height:280px;
+            object-fit:cover;
+            transition:0.5s ease;
+            border-radius:18px;
+            border:1px solid rgba(255,255,255,0.08);
+        }
+
+        .gallery-item:hover img{
+            transform:scale(1.08);
+            filter:brightness(1.2);
+            box-shadow:0 0 40px rgba(255,255,255,0.25);
+        }
+
+        /* LIGHTBOX (FULLSCREEN VIEW) */
+        .lightbox{
+            position:fixed;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            background:rgba(0,0,0,0.95);
+            display:none;
+            justify-content:center;
+            align-items:center;
+            z-index:2000;
+        }
+
+        .lightbox img{
+            max-width:90%;
+            max-height:90%;
+            border-radius:12px;
+            box-shadow:0 0 60px rgba(255,255,255,0.3);
+        }
+
+        .close{
+            position:absolute;
+            top:30px;
+            right:40px;
+            font-size:40px;
+            color:white;
+            cursor:pointer;
+            font-family:'Orbitron';
+        }
+
+        /* SCROLL REVEAL */
+        .reveal{
+            opacity:0;
+            transform:translateY(80px);
+            transition:1s ease;
+        }
+
+        .reveal.active{
+            opacity:1;
+            transform:translateY(0);
+        }
+
+        footer{
+            text-align:center;
+            padding:60px;
+            background:#000;
+            border-top:1px solid rgba(255,255,255,0.08);
+            color:#777;
+            letter-spacing:2px;
+        }
+
+        @media(max-width:768px){
+            .hero h1{
+                font-size:50px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="nav">
+        <div class="logo">STELLERIUM</div>
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="services.html">SERVICES</a>
+            <a href="gallery.html">GALLERY</a>
+            <a href="contact.html">CONTACT</a>
+            <a href="pricing.html">PRICING</a>
+        </nav>
+    </div>
+</header>
+
+<section class="hero">
+    <h1>GALLERY</h1>
+</section>
+
+<section class="gallery-section reveal">
+    <h2 class="gallery-title">OUR PROJECTION WORK</h2>
+
+    <div class="gallery-grid">
+        <div class="gallery-item"><img src="images/service1.jpg" onclick="openLightbox(this.src)"></div>
+        <div class="gallery-item"><img src="images/service2.jpg" onclick="openLightbox(this.src)"></div>
+        <div class="gallery-item"><img src="images/service3.jpg" onclick="openLightbox(this.src)"></div>
+        <div class="gallery-item"><img src="images/service4.jpg" onclick="openLightbox(this.src)"></div>
+        <div class="gallery-item"><img src="images/service5.jpg" onclick="openLightbox(this.src)"></div>
+        <div class="gallery-item"><img src="images/service6.jpg" onclick="openLightbox(this.src)"></div>
+        <div class="gallery-item"><img src="images/service7.jpg" onclick="openLightbox(this.src)"></div>
+        <div class="gallery-item"><img src="images/service8.jpg" onclick="openLightbox(this.src)"></div>
+        <div class="gallery-item"><img src="images/service9.jpg" onclick="openLightbox(this.src)"></div>
+    </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+    <span class="close" onclick="closeLightbox()">×</span>
+    <img id="lightbox-img">
+</div>
+
+<footer>
+    © 2026 STELLERIUM — IMMERSIVE VISUAL GALLERY
+</footer>
+
+<script>
+function openLightbox(src){
+    document.getElementById("lightbox").style.display="flex";
+    document.getElementById("lightbox-img").src=src;
+}
+
+function closeLightbox(){
+    document.getElementById("lightbox").style.display="none";
+}
+
+/* SCROLL REVEAL */
+const reveals=document.querySelectorAll(".reveal");
+window.addEventListener("scroll",()=>{
+    reveals.forEach(r=>{
+        let top=r.getBoundingClientRect().top;
+        if(top<window.innerHeight-100){
+            r.classList.add("active");
+        }
+    });
+});
+</script>
+
+</body>
+</html>

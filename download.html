@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Download | StellarMap Software</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body{
+            margin:0;
+            font-family:'Orbitron', sans-serif;
+            background:black;
+        }
+
+        .download-hero{
+            height:55vh;
+            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.95)),
+                        url('images/hero.jpg');
+            background-size:cover;
+            background-position:center;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            text-align:center;
+        }
+
+        .download-hero h1{
+            font-size:60px;
+            letter-spacing:6px;
+            color:white;
+        }
+
+        .download-box{
+            max-width:750px;
+            margin:80px auto;
+            padding:50px;
+            background: linear-gradient(145deg,#050505,#111);
+            border:1px solid #222;
+            border-radius:15px;
+            text-align:center;
+        }
+
+        .price{
+            font-size:48px;
+            color:white;
+            margin:20px 0;
+        }
+
+        .email-input{
+            width:80%;
+            padding:15px;
+            margin-top:20px;
+            background:#000;
+            border:1px solid #333;
+            color:white;
+            border-radius:8px;
+            font-size:16px;
+        }
+
+        .download-btn{
+            margin-top:30px;
+            padding:16px 45px;
+            background:linear-gradient(135deg,#111,#1f1f1f);
+            border:1px solid #444;
+            color:white;
+            font-family:'Orbitron', sans-serif;
+            letter-spacing:2px;
+            font-size:16px;
+            cursor:pointer;
+            border-radius:8px;
+            transition:0.3s;
+        }
+
+        .download-btn:hover{
+            background:white;
+            color:black;
+            box-shadow:0 0 25px white;
+        }
+
+        .support-box{
+            margin-top:30px;
+            padding:25px;
+            background:#000;
+            border:1px solid #333;
+            border-radius:10px;
+            display:none;
+        }
+
+        .support-number{
+            font-size:24px;
+            color:#00ffcc;
+            margin-top:10px;
+            letter-spacing:2px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">STELLARMAP</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="download.html">Download</a>
+    </nav>
+</header>
+
+<div class="download-hero">
+    <h1>DOWNLOAD STELLARMAP</h1>
+</div>
+
+<div class="download-box">
+    <h2>StellarMap Projection Mapping Suite</h2>
+    <p style="color:#b0b0b0;">
+        Enter your email to get software access and support details.
+    </p>
+
+    <div class="price">$15,000</div>
+
+    <input 
+        type="email" 
+        id="email"
+        class="email-input" 
+        placeholder="Enter your Gmail Address"
+    >
+
+    <br>
+    <button class="download-btn" onclick="handleDownload()">
+        DOWNLOAD SOFTWARE
+    </button>
+
+    <!-- SUPPORT MESSAGE -->
+    <div id="supportBox" class="support-box">
+        <h3>Contact Support to Complete Download</h3>
+        <p style="color:#aaa;">
+            Our team will provide the software access and installation guide.
+        </p>
+        <div class="support-number">
+            📞 Support Number: +91 98765 43210
+        </div>
+    </div>
+</div>
+
+<script>
+function handleDownload() {
+    var email = document.getElementById("email").value;
+    var supportBox = document.getElementById("supportBox");
+
+    if(email === "") {
+        alert("Please enter your email address.");
+        return;
+    }
+
+    if(!email.includes("@")) {
+        alert("Please enter a valid Gmail address.");
+        return;
+    }
+
+    // Show support message on website
+    supportBox.style.display = "block";
+
+    // Auto open Gmail with pre-filled email
+    var subject = encodeURIComponent("StellarMap Software Support & Download Access");
+    var body = encodeURIComponent(
+        "Hello,\n\nThank you for requesting StellarMap Software.\n\nSupport Number: +91 98765 43210\n\nOur team will assist you with installation and access.\n\n- StellarMap Support Team"
+    );
+
+    var gmailLink = "https://mail.google.com/mail/?view=cm&fs=1&to=" + email + "&su=" + subject + "&body=" + body;
+
+    window.open(gmailLink, "_blank");
+}
+</script>
+
+</body>
+</html>
