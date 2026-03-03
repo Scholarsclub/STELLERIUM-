@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Contact | STELLERIUM</title>
+    <title>STELLERIUM | Contact</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
     <style>
-        *{margin:0;padding:0;box-sizing:border-box;}
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
 
         body{
             font-family:'Poppins', sans-serif;
@@ -15,11 +21,13 @@
             overflow-x:hidden;
         }
 
-        /* NAVBAR */
+        /* ================= HEADER ================= */
+
         header{
             position:fixed;
             width:100%;
             top:0;
+            left:0;
             backdrop-filter: blur(15px);
             background:rgba(0,0,0,0.35);
             border-bottom:1px solid rgba(255,255,255,0.1);
@@ -27,26 +35,33 @@
         }
 
         .nav{
+            max-width:1200px;
+            margin:auto;
             display:flex;
             justify-content:space-between;
-            padding:22px 60px;
             align-items:center;
+            padding:20px 30px; /* SAME SIDE PADDING */
         }
 
         .logo{
             font-family:'Orbitron';
-            font-size:30px;
-            letter-spacing:6px;
+            font-size:26px;
+            letter-spacing:5px;
             font-weight:900;
-            text-shadow:0 0 20px rgba(255,255,255,0.4);
+        }
+
+        nav{
+            display:flex;
+            flex-wrap:wrap;
         }
 
         nav a{
             color:#ddd;
-            margin-left:35px;
+            margin-left:25px;
             text-decoration:none;
             font-family:'Orbitron';
             letter-spacing:2px;
+            font-size:14px;
             transition:0.3s;
         }
 
@@ -55,122 +70,116 @@
             text-shadow:0 0 15px white;
         }
 
-        /* HERO */
-        .hero{
-            height:50vh;
-            background:
-            linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.95)),
-            url('images/service9.jpg');
-            background-size:cover;
-            background-position:center;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            text-align:center;
-        }
+        /* ================= CONTACT SECTION ================= */
 
-        .hero h1{
-            font-family:'Orbitron';
-            font-size:85px;
-            letter-spacing:12px;
-            text-shadow:0 0 40px rgba(255,255,255,0.4);
-        }
-
-        /* CONTACT SECTION */
         .contact-section{
-            padding:120px 8%;
+            min-height:100vh;
             display:flex;
             justify-content:center;
             align-items:center;
+            padding:140px 30px 80px 30px; /* SAME SIDE PADDING */
         }
 
         .contact-card{
             width:100%;
-            max-width:900px;
+            max-width:550px;
             backdrop-filter:blur(20px);
             background:rgba(255,255,255,0.05);
-            border:1px solid rgba(255,255,255,0.12);
-            border-radius:25px;
-            padding:60px;
+            border:1px solid rgba(255,255,255,0.15);
+            padding:50px 40px;
+            border-radius:20px;
             text-align:center;
-            box-shadow:0 0 60px rgba(255,255,255,0.08);
-            transition:0.4s;
         }
 
-        .contact-card:hover{
-            box-shadow:0 0 80px rgba(255,255,255,0.2);
-            transform:translateY(-5px);
-        }
-
-        .contact-title{
+        .contact-card h1{
             font-family:'Orbitron';
-            font-size:40px;
-            letter-spacing:4px;
-            margin-bottom:20px;
+            font-size:clamp(32px,5vw,55px);
+            letter-spacing:6px;
+            margin-bottom:30px;
         }
 
-        .contact-sub{
-            color:#bfbfbf;
-            font-size:18px;
-            margin-bottom:40px;
+        .contact-card input,
+        .contact-card textarea{
+            width:100%;
+            padding:14px 15px;
+            margin-top:15px;
+            background:rgba(255,255,255,0.08);
+            border:1px solid rgba(255,255,255,0.2);
+            border-radius:10px;
+            color:white;
+            font-family:'Poppins';
+            outline:none;
+            transition:0.3s;
         }
 
-        .info-box{
-            margin:25px 0;
-            font-size:22px;
-            letter-spacing:2px;
+        .contact-card input:focus,
+        .contact-card textarea:focus{
+            border-color:white;
+            box-shadow:0 0 15px rgba(255,255,255,0.3);
         }
 
-        .label{
-            color:#888;
-            font-size:16px;
-            display:block;
-            margin-bottom:8px;
+        .contact-card textarea{
+            resize:none;
+            height:120px;
         }
 
-        .value{
-            font-family:'Orbitron';
-            font-size:26px;
-            text-shadow:0 0 15px rgba(255,255,255,0.3);
-        }
-
-        /* BUTTON */
-        .contact-btn{
-            margin-top:40px;
-            padding:18px 50px;
-            border-radius:15px;
+        .btn{
+            margin-top:25px;
+            padding:14px 35px;
             border:1px solid rgba(255,255,255,0.3);
             background:rgba(0,0,0,0.4);
             color:white;
+            text-decoration:none;
             font-family:'Orbitron';
-            letter-spacing:3px;
-            font-size:16px;
-            cursor:pointer;
+            letter-spacing:2px;
+            border-radius:12px;
             transition:0.4s;
+            display:inline-block;
+            cursor:pointer;
         }
 
-        .contact-btn:hover{
+        .btn:hover{
             background:white;
             color:black;
             box-shadow:0 0 40px white;
-            transform:translateY(-4px);
         }
 
-        footer{
-            text-align:center;
-            padding:60px;
-            background:#000;
-            border-top:1px solid rgba(255,255,255,0.08);
-            color:#777;
-            letter-spacing:2px;
+        /* ================= TABLET ================= */
+
+        @media (max-width: 992px){
+            nav a{
+                margin-left:15px;
+                font-size:12px;
+            }
         }
 
-        @media(max-width:768px){
-            .hero h1{font-size:50px;}
-            .contact-card{padding:35px;}
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 600px){
+
+            .nav{
+                flex-direction:column;
+                gap:15px;
+                padding:20px 30px;
+            }
+
+            nav{
+                justify-content:center;
+                gap:10px;
+            }
+
+            nav a{
+                margin-left:0;
+            }
+
+            .contact-card{
+                padding:35px 25px;
+            }
         }
+
     </style>
 </head>
+
 <body>
 
 <header>
@@ -180,40 +189,27 @@
             <a href="index.html">HOME</a>
             <a href="services.html">SERVICES</a>
             <a href="gallery.html">GALLERY</a>
-            <a href="contact.html">CONTACT</a>
             <a href="pricing.html">PRICING</a>
+            <a href="contact.html">CONTACT</a>
         </nav>
     </div>
 </header>
 
-<section class="hero">
-    <h1>CONTACT US</h1>
-</section>
-
 <section class="contact-section">
+
     <div class="contact-card">
-        <div class="contact-title">GET IN TOUCH WITH STELLERIUM</div>
-        <div class="contact-sub">
-            For projection mapping software, installations, and immersive visual solutions,
-            contact our premium support team.
-        </div>
+        <h1>CONTACT US</h1>
 
-        <div class="info-box">
-            <span class="label">SUPPORT EMAIL</span>
-            <div class="value">support@stellerium.com</div>
-        </div>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea>
 
-        <div class="info-box">
-            <span class="label">SUPPORT NUMBER</span>
-            <div class="value">+1 380 209 8869</div>
-        </div>
-
-        
+            <button type="submit" class="btn">SEND MESSAGE</button>
+        </form>
     </div>
+
 </section>
 
-<footer>
-    © 2026 STELLERIUM — FUTURISTIC PROJECTION MAPPING STUDIO
-</footer>
 </body>
 </html>
