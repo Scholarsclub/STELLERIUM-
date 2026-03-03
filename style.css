@@ -61,6 +61,32 @@ nav a:hover{
     text-shadow:0 0 15px white;
 }
 
+/* ================= CINEMATIC BACKGROUND ================= */
+.video-bg{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:-3;
+}
+
+.overlay{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:radial-gradient(circle at center, rgba(0,0,0,0.4), rgba(0,0,0,0.95));
+    z-index:-2;
+}
+
+canvas{
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:-1;
+}
+
 /* ================= HERO ================= */
 .hero{
     min-height:100vh;
@@ -160,41 +186,7 @@ nav a:hover{
     font-size:70px;
 }
 
-/* ================= SERVICES ================= */
-.service-section{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:120px 10%;
-    background-size:cover;
-    background-position:center;
-    position:relative;
-}
-
-.service-content{
-    position:relative;
-    max-width:600px;
-    backdrop-filter:blur(20px);
-    background:rgba(255,255,255,0.05);
-    padding:45px;
-    border-radius:20px;
-    border:1px solid rgba(255,255,255,0.1);
-    box-shadow:0 0 40px rgba(255,255,255,0.08);
-}
-
-.service-content h1{
-    font-family:'Orbitron';
-    font-size:42px;
-    margin-bottom:20px;
-}
-
-.service-content p{
-    font-size:18px;
-    line-height:1.7;
-}
-
-/* ================= MOBILE ================= */
+/* ================= MOBILE FIX ================= */
 @media (max-width:768px){
 
     .nav{
@@ -214,9 +206,9 @@ nav a:hover{
         font-size:14px;
     }
 
-    /* HERO */
+    /* HERO TITLE FIX */
     .hero h1{
-        font-size:34px;
+        font-size:34px;   /* reduced mobile size */
         letter-spacing:4px;
         line-height:1.1;
     }
@@ -233,11 +225,15 @@ nav a:hover{
     .stat h3{
         font-size:48px;
     }
+}
+/* ================= SERVICES MOBILE FIX ================= */
+@media (max-width:768px){
 
-    /* SERVICES */
     .service-section{
-        min-height:auto;
+        min-height:auto;        /* remove forced 100vh */
         padding:120px 20px 80px 20px;
+        align-items:center;
+        justify-content:center;
     }
 
     .service-content{
@@ -247,12 +243,46 @@ nav a:hover{
     }
 
     .service-content h1{
-        font-size:24px;
-        letter-spacing:1px;
+        font-size:26px;
+        letter-spacing:2px;
     }
 
     .service-content p{
         font-size:14px;
         line-height:1.6;
     }
+
 }
+/* ================= FINAL SERVICES MOBILE FIX ================= */
+@media (max-width:768px){
+
+    .service-section{
+        min-height:auto !important;
+        padding:120px 20px 80px 20px !important;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+    }
+
+    .service-content{
+        width:100%;
+        max-width:100%;
+        padding:20px !important;
+    }
+
+    .service-content h1{
+        font-size:22px !important;
+        letter-spacing:1px !important;
+        line-height:1.2;
+    }
+
+    .service-content p{
+        font-size:14px;
+        line-height:1.6;
+    }
+
+}
+
+thisis the complete style.css make it proper and final to copy paste
+
+
