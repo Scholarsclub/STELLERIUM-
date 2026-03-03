@@ -623,24 +623,25 @@ canvas{
 
 /* STATS */
 .stats{
-    padding:140px 10%;
+    padding:120px 20px;
     text-align:center;
-    background:black;
-}
-
-.stats h2{
-    font-size:clamp(40px,6vw,70px);
-    margin-bottom:70px;
-    letter-spacing:6px;
+    background:#000;
+    width:100%;
 }
 
 .stat-grid{
     display:flex;
     justify-content:center;
-    gap:100px;
+    align-items:center;
+    gap:60px;
     flex-wrap:wrap;
+}
+
+.stat{
+    min-width:200px;
 }
 
 .stat h3{
     font-size:70px;
 }
+
