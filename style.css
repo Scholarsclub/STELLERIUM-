@@ -666,5 +666,17 @@ canvas{
 .stat h3{
     font-size:70px;
 }
+/* ===== MOBILE HERO FIX ===== */
+@media (max-width: 768px) {
+
+    .hero h1{
+        font-size: clamp(38px, 9vw, 60px);
+        letter-spacing: 4px;
+        line-height: 1.1;
+        padding: 0 10px;
+        word-break: break-word;
+    }
+
+}
 
 
