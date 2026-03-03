@@ -1,184 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>STELLERIUM | Contact</title>
+    <title>Contact | STELLERIUM</title>
 
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
+    <!-- Main Stylesheet -->
     <link rel="stylesheet" href="style.css">
-    <style>
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-        }
-
-        body{
-            font-family:'Poppins', sans-serif;
-            background:black;
-            color:white;
-            overflow-x:hidden;
-        }
-
-        /* ================= HEADER ================= */
-
-        header{
-            position:fixed;
-            width:100%;
-            top:0;
-            left:0;
-            backdrop-filter: blur(15px);
-            background:rgba(0,0,0,0.35);
-            border-bottom:1px solid rgba(255,255,255,0.1);
-            z-index:1000;
-        }
-
-        .nav{
-            max-width:1200px;
-            margin:auto;
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
-            padding:20px 30px; /* SAME SIDE PADDING */
-        }
-
-        .logo{
-            font-family:'Orbitron';
-            font-size:26px;
-            letter-spacing:5px;
-            font-weight:900;
-        }
-
-        nav{
-            display:flex;
-            flex-wrap:wrap;
-        }
-
-        nav a{
-            color:#ddd;
-            margin-left:25px;
-            text-decoration:none;
-            font-family:'Orbitron';
-            letter-spacing:2px;
-            font-size:14px;
-            transition:0.3s;
-        }
-
-        nav a:hover{
-            color:white;
-            text-shadow:0 0 15px white;
-        }
-
-        /* ================= CONTACT SECTION ================= */
-
-        .contact-section{
-            min-height:100vh;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            padding:140px 30px 80px 30px; /* SAME SIDE PADDING */
-        }
-
-        .contact-card{
-            width:100%;
-            max-width:550px;
-            backdrop-filter:blur(20px);
-            background:rgba(255,255,255,0.05);
-            border:1px solid rgba(255,255,255,0.15);
-            padding:50px 40px;
-            border-radius:20px;
-            text-align:center;
-        }
-
-        .contact-card h1{
-            font-family:'Orbitron';
-            font-size:clamp(32px,5vw,55px);
-            letter-spacing:6px;
-            margin-bottom:30px;
-        }
-
-        .contact-card input,
-        .contact-card textarea{
-            width:100%;
-            padding:14px 15px;
-            margin-top:15px;
-            background:rgba(255,255,255,0.08);
-            border:1px solid rgba(255,255,255,0.2);
-            border-radius:10px;
-            color:white;
-            font-family:'Poppins';
-            outline:none;
-            transition:0.3s;
-        }
-
-        .contact-card input:focus,
-        .contact-card textarea:focus{
-            border-color:white;
-            box-shadow:0 0 15px rgba(255,255,255,0.3);
-        }
-
-        .contact-card textarea{
-            resize:none;
-            height:120px;
-        }
-
-        .btn{
-            margin-top:25px;
-            padding:14px 35px;
-            border:1px solid rgba(255,255,255,0.3);
-            background:rgba(0,0,0,0.4);
-            color:white;
-            text-decoration:none;
-            font-family:'Orbitron';
-            letter-spacing:2px;
-            border-radius:12px;
-            transition:0.4s;
-            display:inline-block;
-            cursor:pointer;
-        }
-
-        .btn:hover{
-            background:white;
-            color:black;
-            box-shadow:0 0 40px white;
-        }
-
-        /* ================= TABLET ================= */
-
-        @media (max-width: 992px){
-            nav a{
-                margin-left:15px;
-                font-size:12px;
-            }
-        }
-
-        /* ================= MOBILE ================= */
-
-        @media (max-width: 600px){
-
-            .nav{
-                flex-direction:column;
-                gap:15px;
-                padding:20px 30px;
-            }
-
-            nav{
-                justify-content:center;
-                gap:10px;
-            }
-
-            nav a{
-                margin-left:0;
-            }
-
-            .contact-card{
-                padding:35px 25px;
-            }
-        }
-
-    </style>
 </head>
 
 <body>
@@ -196,22 +28,40 @@
     </div>
 </header>
 
-<section class="contact-section">
-
-    <div class="contact-card">
-        <h1>CONTACT US</h1>
-
-        <form>
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" required></textarea>
-
-            <button type="submit" class="btn">SEND MESSAGE</button>
-        </form>
-    </div>
-
+<!-- HERO -->
+<section class="contact-hero">
+    <h1>CONTACT US</h1>
 </section>
+
+<!-- CONTACT CONTENT -->
+<section class="contact-section">
+    <div class="contact-card">
+
+        <div class="contact-title">
+            GET IN TOUCH WITH STELLERIUM
+        </div>
+
+        <div class="contact-sub">
+            For projection mapping software, installations, and immersive visual solutions,
+            contact our premium support team.
+        </div>
+
+        <div class="info-box">
+            <span class="label">SUPPORT EMAIL</span>
+            <div class="value">support@stellerium.com</div>
+        </div>
+
+        <div class="info-box">
+            <span class="label">SUPPORT NUMBER</span>
+            <div class="value">+1 380 209 8869</div>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    © 2026 STELLERIUM — FUTURISTIC PROJECTION MAPPING STUDIO
+</footer>
 
 </body>
 </html>
-
