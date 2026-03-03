@@ -226,3 +226,31 @@ canvas{
         font-size:48px;
     }
 }
+/* ================= SERVICES MOBILE FIX ================= */
+@media (max-width:768px){
+
+    .service-section{
+        min-height:auto;        /* remove forced 100vh */
+        padding:120px 20px 80px 20px;
+        align-items:center;
+        justify-content:center;
+    }
+
+    .service-content{
+        width:100%;
+        max-width:100%;
+        padding:25px;
+    }
+
+    .service-content h1{
+        font-size:26px;
+        letter-spacing:2px;
+    }
+
+    .service-content p{
+        font-size:14px;
+        line-height:1.6;
+    }
+
+}
+
