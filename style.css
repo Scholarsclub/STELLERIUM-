@@ -13,9 +13,24 @@ body{
     overflow-x:hidden;
 }
 
-/* Prevent content hiding under navbar */
-section{
+/* ================= GLOBAL CONTAINER CONTROL ================= */
+/* Prevents content hiding under fixed navbar */
+main, section{
     padding-top:100px;
+}
+
+/* ================= FONTS ================= */
+h1,h2,h3,h4{
+    font-family:'Orbitron', sans-serif;
+    font-weight:900;
+    letter-spacing:4px;
+}
+
+p{
+    font-family:'Poppins', sans-serif;
+    font-weight:400;
+    color:#cccccc;
+    line-height:1.7;
 }
 
 /* ================= NAVBAR ================= */
@@ -44,6 +59,7 @@ header{
     font-size:30px;
     font-weight:900;
     letter-spacing:6px;
+    text-shadow:0 0 25px rgba(255,255,255,0.4);
 }
 
 nav{
@@ -85,14 +101,13 @@ nav a:hover{
 }
 
 .hero h1{
-    font-family:'Orbitron';
     font-size:clamp(60px,10vw,120px);
     letter-spacing:12px;
     text-shadow:0 0 60px rgba(255,255,255,0.5);
 }
 
 .typing{
-    font-size:clamp(18px,2.2vw,28px);
+    font-size:clamp(18px,2.5vw,24px);
     letter-spacing:3px;
     color:#cfcfcf;
     min-height:40px;
@@ -120,42 +135,24 @@ nav a:hover{
     transform:translateY(-3px);
 }
 
-/* ================= STATS ================= */
-.stats{
-    padding:120px 20px;
-    text-align:center;
-    background:#000;
-}
-
-.stat-grid{
-    display:flex;
-    justify-content:center;
-    gap:60px;
-    flex-wrap:wrap;
-}
-
-.stat h3{
-    font-family:'Orbitron';
-    font-size:70px;
-}
-
-/* ================= SERVICES ================= */
+/* ================= SERVICE SECTIONS ================= */
 .service-section{
     min-height:100vh;
     display:flex;
-    justify-content:center;
     align-items:center;
+    padding:0 10%;
     background-size:cover;
     background-position:center;
-    padding:120px 10%;
     position:relative;
 }
 
-.service-section::before{
-    content:"";
+.overlay{
     position:absolute;
-    inset:0;
+    width:100%;
+    height:100%;
     background:rgba(0,0,0,0.65);
+    top:0;
+    left:0;
 }
 
 .service-content{
@@ -163,28 +160,26 @@ nav a:hover{
     max-width:600px;
     backdrop-filter:blur(20px);
     background:rgba(255,255,255,0.05);
-    padding:50px;
+    padding:45px;
     border-radius:20px;
     border:1px solid rgba(255,255,255,0.1);
     box-shadow:0 0 40px rgba(255,255,255,0.08);
 }
 
 .service-content h1{
-    font-family:'Orbitron';
     font-size:42px;
     margin-bottom:20px;
-    letter-spacing:3px;
-}
-
-.service-content p{
-    font-size:18px;
-    line-height:1.7;
-    color:#ccc;
 }
 
 /* ================= GALLERY ================= */
 .gallery-section{
     padding:140px 8%;
+}
+
+.gallery-title{
+    text-align:center;
+    font-size:clamp(32px,5vw,50px);
+    margin-bottom:60px;
 }
 
 .gallery-grid{
@@ -193,47 +188,29 @@ nav a:hover{
     gap:25px;
 }
 
+.gallery-item{
+    overflow:hidden;
+    border-radius:18px;
+    cursor:pointer;
+}
+
 .gallery-item img{
     width:100%;
     height:280px;
     object-fit:cover;
-    border-radius:18px;
-    transition:0.4s;
+    transition:0.5s ease;
+    border:1px solid rgba(255,255,255,0.08);
 }
 
 .gallery-item img:hover{
-    transform:scale(1.05);
-}
-
-/* ================= PRICING ================= */
-.pricing-section{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:160px 8%;
-}
-
-.pricing-card{
-    max-width:520px;
-    width:100%;
-    text-align:center;
-    backdrop-filter:blur(20px);
-    background:rgba(255,255,255,0.05);
-    border:1px solid rgba(255,255,255,0.12);
-    border-radius:25px;
-    padding:60px;
-}
-
-.price{
-    font-family:'Orbitron';
-    font-size:clamp(48px,8vw,85px);
-    margin:20px 0;
+    transform:scale(1.08);
+    filter:brightness(1.2);
+    box-shadow:0 0 40px rgba(255,255,255,0.25);
 }
 
 /* ================= CONTACT ================= */
 .contact-section{
-    padding:140px 8%;
+    padding:160px 8%;
     display:flex;
     justify-content:center;
 }
@@ -247,11 +224,19 @@ nav a:hover{
     border-radius:25px;
     padding:60px;
     text-align:center;
+    box-shadow:0 0 60px rgba(255,255,255,0.08);
+}
+
+.contact-title{
+    font-size:clamp(28px,4vw,38px);
+    margin-bottom:20px;
 }
 
 .value{
-    font-family:'Orbitron';
+    font-family:'Orbitron', sans-serif;
+    font-weight:700;
     font-size:24px;
+    text-shadow:0 0 10px rgba(255,255,255,0.3);
 }
 
 /* ================= FOOTER ================= */
@@ -260,9 +245,30 @@ footer{
     padding:60px;
     border-top:1px solid rgba(255,255,255,0.08);
     color:#777;
+    letter-spacing:2px;
+    background:#000;
 }
 
-/* ================= MOBILE ================= */
+/* ================= RESPONSIVE BREAKPOINTS ================= */
+
+/* Tablet */
+@media(max-width:1024px){
+
+    .nav{
+        padding:20px 30px;
+    }
+
+    nav a{
+        margin-left:20px;
+    }
+
+    .service-section{
+        padding:0 6%;
+    }
+
+}
+
+/* Mobile */
 @media(max-width:768px){
 
     .nav{
@@ -279,14 +285,38 @@ footer{
 
     nav a{
         margin-left:0;
-        font-size:14px;
+        font-size:13px;
     }
 
-    /* HERO FIX */
     .hero h1{
-        font-size:34px;
+        font-size:clamp(36px,10vw,60px);
+        letter-spacing:6px;
+    }
+
+    .service-content{
+        padding:30px;
+    }
+
+    .contact-card{
+        padding:35px;
+    }
+
+    .gallery-item img{
+        height:220px;
+    }
+
+}
+
+/* Small Phones */
+@media(max-width:480px){
+
+    .hero{
+        padding:0 15px;
+    }
+
+    .hero h1{
+        font-size:32px;
         letter-spacing:4px;
-        line-height:1.1;
     }
 
     .typing{
@@ -298,27 +328,4 @@ footer{
         font-size:13px;
     }
 
-    .stat h3{
-        font-size:48px;
-    }
-
-    /* SERVICES MOBILE */
-    .service-section{
-        min-height:auto;
-        padding:120px 20px 80px 20px;
-    }
-
-    .service-content{
-        width:100%;
-        padding:25px;
-    }
-
-    .service-content h1{
-        font-size:24px;
-        letter-spacing:1px;
-    }
-
-    .service-content p{
-        font-size:14px;
-    }
 }
