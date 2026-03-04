@@ -12,39 +12,18 @@ font-family:'Poppins',sans-serif;
 background:#000;
 color:#fff;
 overflow-x:hidden;
-width:100%;
-}
-
-/* Prevent content hiding under navbar */
-
-main,section{
-padding-top:100px;
-}
-
-/* ================= FONTS ================= */
-
-h1,h2,h3,h4{
-font-family:'Orbitron',sans-serif;
-font-weight:900;
-letter-spacing:4px;
-}
-
-p{
-color:#cccccc;
-line-height:1.7;
 }
 
 /* ================= NAVBAR ================= */
 
 header{
 position:fixed;
-width:100%;
 top:0;
-left:0;
+width:100%;
+z-index:1000;
 backdrop-filter:blur(15px);
 background:rgba(0,0,0,0.35);
 border-bottom:1px solid rgba(255,255,255,0.08);
-z-index:1000;
 }
 
 .nav{
@@ -60,7 +39,6 @@ padding:20px 60px;
 font-family:'Orbitron';
 font-size:30px;
 letter-spacing:6px;
-text-shadow:0 0 25px rgba(255,255,255,0.4);
 }
 
 nav{
@@ -70,12 +48,10 @@ align-items:center;
 
 nav a{
 font-family:'Orbitron';
-font-weight:600;
 color:#ddd;
 margin-left:35px;
 text-decoration:none;
 letter-spacing:2px;
-transition:.3s;
 }
 
 nav a:hover{
@@ -83,10 +59,41 @@ color:#fff;
 text-shadow:0 0 15px white;
 }
 
+/* ================= VIDEO BACKGROUND ================= */
+
+.video-bg{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+z-index:-3;
+}
+
+.overlay{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:radial-gradient(circle at center,
+rgba(0,0,0,0.4),
+rgba(0,0,0,0.95));
+z-index:-2;
+}
+
+canvas{
+position:fixed;
+top:0;
+left:0;
+z-index:-1;
+}
+
 /* ================= HERO ================= */
 
 .hero{
-min-height:100vh;
+height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
@@ -99,12 +106,12 @@ display:flex;
 flex-direction:column;
 gap:30px;
 align-items:center;
-max-width:1200px;
 }
 
 .hero h1{
-font-size:clamp(50px,10vw,120px);
-letter-spacing:8px;
+font-family:'Orbitron';
+font-size:clamp(60px,10vw,120px);
+letter-spacing:10px;
 text-shadow:0 0 60px rgba(255,255,255,0.5);
 }
 
@@ -124,7 +131,6 @@ border-radius:12px;
 text-decoration:none;
 color:white;
 font-family:'Orbitron';
-font-weight:700;
 letter-spacing:3px;
 background:rgba(0,0,0,0.4);
 transition:.4s;
@@ -134,45 +140,18 @@ transition:.4s;
 background:white;
 color:black;
 box-shadow:0 0 40px white;
-transform:translateY(-3px);
 }
 
-/* ================= VIDEO BG ================= */
-
-.video-bg{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-object-fit:cover;
-z-index:-3;
-}
-
-.overlay{
-position:fixed;
-width:100%;
-height:100%;
-background:radial-gradient(circle,rgba(0,0,0,.4),rgba(0,0,0,.95));
-z-index:-2;
-}
-
-canvas{
-position:fixed;
-top:0;
-left:0;
-z-index:-1;
-}
-
-/* ================= FLOATING CARDS ================= */
+/* ================= FLOATING TAGS ================= */
 
 .floating{
-margin-top:40px;
+position:absolute;
+bottom:60px;
+width:100%;
 display:flex;
 justify-content:center;
-gap:20px;
+gap:30px;
 flex-wrap:wrap;
-padding:0 20px 60px;
 }
 
 .glass{
@@ -182,42 +161,31 @@ border:1px solid rgba(255,255,255,0.12);
 padding:18px 28px;
 border-radius:16px;
 font-family:'Orbitron';
-letter-spacing:2px;
-transition:.4s;
-}
-
-.glass:hover{
-transform:translateY(-8px);
-box-shadow:0 0 30px rgba(255,255,255,.25);
 }
 
 /* ================= STATS ================= */
 
 .stats{
-padding:120px 20px;
+padding:140px 20px;
 text-align:center;
-background:#000;
 }
 
 .stat-grid{
 display:flex;
 justify-content:center;
-gap:60px;
+gap:80px;
 flex-wrap:wrap;
 }
 
-.stat{
-min-width:200px;
-}
-
 .stat h3{
+font-family:'Orbitron';
 font-size:70px;
 }
 
 /* ================= SERVICES ================= */
 
 .service-section{
-min-height:100vh;
+height:100vh;
 display:flex;
 align-items:center;
 padding:0 10%;
@@ -226,17 +194,27 @@ background-position:center;
 position:relative;
 }
 
+.service-section .overlay{
+position:absolute;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.65);
+top:0;
+left:0;
+}
+
 .service-content{
+position:relative;
 max-width:600px;
 backdrop-filter:blur(20px);
 background:rgba(255,255,255,0.05);
 padding:45px;
 border-radius:20px;
 border:1px solid rgba(255,255,255,0.1);
-box-shadow:0 0 40px rgba(255,255,255,0.08);
 }
 
 .service-content h1{
+font-family:'Orbitron';
 font-size:42px;
 margin-bottom:20px;
 }
@@ -244,7 +222,7 @@ margin-bottom:20px;
 /* ================= GALLERY ================= */
 
 .gallery-section{
-padding:140px 8%;
+padding:120px 8%;
 }
 
 .gallery-grid{
@@ -263,105 +241,52 @@ transition:.5s;
 
 .gallery-item img:hover{
 transform:scale(1.08);
-box-shadow:0 0 40px rgba(255,255,255,.25);
 }
 
-/* ================= FEATURES ================= */
+/* ================= PRICING ================= */
 
-.section-title{
-font-family:'Orbitron';
-font-size:48px;
+.pricing-section{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:140px 20px;
+}
+
+.pricing-card{
+max-width:520px;
+width:100%;
 text-align:center;
-margin-bottom:80px;
-letter-spacing:6px;
-}
-
-.features-section{
-padding:140px 10%;
-background:#000;
-}
-
-.features-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:40px;
-}
-
-.feature-card{
 background:rgba(255,255,255,0.05);
-padding:40px;
-border-radius:20px;
+border:1px solid rgba(255,255,255,0.12);
+border-radius:25px;
+padding:60px;
 backdrop-filter:blur(20px);
-border:1px solid rgba(255,255,255,0.1);
-transition:.4s;
 }
 
-.feature-card:hover{
-transform:translateY(-10px);
-box-shadow:0 0 30px rgba(255,255,255,.2);
-}
-
-/* ================= TECHNOLOGY ================= */
-
-.technology-section{
-padding:140px 10%;
-background:#050505;
-}
-
-.tech-content{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:40px;
-}
-
-.tech-block{
-background:rgba(255,255,255,0.04);
-padding:35px;
-border-radius:18px;
-border:1px solid rgba(255,255,255,0.08);
-}
-
-/* ================= WHY SECTION ================= */
-
-.why-section{
-padding:140px 10%;
-background:#000;
-}
-
-.why-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:40px;
-}
-
-.why-card{
-background:rgba(255,255,255,0.05);
-padding:40px;
-border-radius:18px;
-border:1px solid rgba(255,255,255,0.1);
+.price{
+font-family:'Orbitron';
+font-size:80px;
+margin:20px 0;
 }
 
 /* ================= CONTACT ================= */
 
 .contact-section{
-padding:140px 8%;
+padding:140px 20px;
 display:flex;
 justify-content:center;
 }
 
 .contact-card{
 max-width:900px;
-backdrop-filter:blur(20px);
+width:100%;
 background:rgba(255,255,255,0.05);
 border:1px solid rgba(255,255,255,0.12);
 border-radius:25px;
 padding:60px;
 text-align:center;
-}
-
-.value{
-font-family:'Orbitron';
-font-size:24px;
+backdrop-filter:blur(20px);
 }
 
 /* ================= MOBILE ================= */
@@ -388,33 +313,26 @@ font-size:14px;
 .hero h1{
 font-size:34px;
 letter-spacing:3px;
-line-height:1.1;
-word-break:break-word;
 }
 
 .typing{
 font-size:16px;
 }
 
-.btn{
-padding:14px 30px;
-font-size:13px;
-}
-
 .stat h3{
 font-size:48px;
+}
+
+.service-content h1{
+font-size:24px;
 }
 
 .service-content{
 padding:30px;
 }
 
-.gallery-item img{
-height:220px;
-}
-
-.contact-card{
-padding:35px;
+.price{
+font-size:50px;
 }
 
 }
