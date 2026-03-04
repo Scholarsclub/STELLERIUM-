@@ -301,3 +301,79 @@ transition:0.5s;
 transform:scale(1.08);
 box-shadow:0 0 35px rgba(255,255,255,0.25);
 }
+/* ================= SERVICES FULLSCREEN FIX ================= */
+
+.service-section{
+min-height:100vh;
+display:flex;
+align-items:center;
+padding:0 10%;
+background-size:cover;
+background-position:center;
+position:relative;
+}
+
+/* dark overlay on image */
+
+.service-section::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.65);
+z-index:0;
+}
+
+/* glass card */
+
+.service-content{
+position:relative;
+z-index:1;
+max-width:520px;
+
+background:rgba(255,255,255,0.06);
+backdrop-filter:blur(25px);
+
+padding:45px;
+border-radius:20px;
+
+border:1px solid rgba(255,255,255,0.1);
+
+box-shadow:0 0 40px rgba(0,0,0,0.5);
+}
+
+/* heading */
+
+.service-content h1{
+font-family:'Orbitron';
+font-size:clamp(30px,4vw,44px);
+margin-bottom:20px;
+}
+
+/* text */
+
+.service-content p{
+font-size:16px;
+color:#dcdcdc;
+line-height:1.6;
+}
+
+/* mobile */
+
+@media(max-width:768px){
+
+.service-section{
+padding:0 20px;
+}
+
+.service-content{
+padding:30px;
+}
+
+.service-content h1{
+font-size:24px;
+}
+
+}
