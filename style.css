@@ -418,33 +418,3 @@ padding:35px;
 }
 
 }
-/* ===== MOBILE HEADING FIX ===== */
-
-@media (max-width:768px){
-
-.section-title{
-font-size:clamp(28px,6vw,48px);
-letter-spacing:clamp(2px,1vw,6px);
-text-align:center;
-margin-bottom:80px;
-}
-
-}
-/* ===== SERVICES MOBILE HEADING FIX ===== */
-
-@media (max-width:768px){
-
-.service-content h1{
-font-size:24px;
-letter-spacing:2px;
-line-height:1.2;
-word-break:break-word;
-}
-
-.service-content p{
-font-size:14px;
-}
-
-}
-
-this is the current css ,add the needfull and give me
