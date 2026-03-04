@@ -1,4 +1,4 @@
-/* ===== GLOBAL RESET ===== */
+/* ================= GLOBAL RESET ================= */
 *{
     margin:0;
     padding:0;
@@ -13,21 +13,7 @@ body{
     overflow-x:hidden;
 }
 
-/* ===== FONTS (CONSISTENT BRANDING) ===== */
-h1,h2,h3,h4{
-    font-family:'Orbitron', sans-serif;
-    font-weight:900; /* FIXES THIN FONT ISSUE */
-    letter-spacing:4px;
-}
-
-p{
-    font-family:'Poppins', sans-serif;
-    font-weight:400;
-    color:#cccccc;
-    line-height:1.7;
-}
-
-/* ===== NAVBAR (SAME FOR ALL PAGES) ===== */
+/* ================= NAVBAR ================= */
 header{
     position:fixed;
     width:100%;
@@ -40,6 +26,8 @@ header{
 }
 
 .nav{
+    max-width:1400px;
+    margin:auto;
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -49,14 +37,18 @@ header{
 .logo{
     font-family:'Orbitron', sans-serif;
     font-size:30px;
-    font-weight:900; /* THICK LOGO */
+    font-weight:900;
     letter-spacing:6px;
-    text-shadow:0 0 25px rgba(255,255,255,0.4);
+}
+
+nav{
+    display:flex;
+    align-items:center;
 }
 
 nav a{
     font-family:'Orbitron', sans-serif;
-    font-weight:600; /* FIXES THIN NAV TEXT */
+    font-weight:600;
     color:#dddddd;
     margin-left:35px;
     text-decoration:none;
@@ -69,9 +61,35 @@ nav a:hover{
     text-shadow:0 0 15px white;
 }
 
-/* ===== HERO SECTION (HOME) ===== */
+/* ================= CINEMATIC BACKGROUND ================= */
+.video-bg{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:-3;
+}
+
+.overlay{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:radial-gradient(circle at center, rgba(0,0,0,0.4), rgba(0,0,0,0.95));
+    z-index:-2;
+}
+
+canvas{
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:-1;
+}
+
+/* ================= HERO ================= */
 .hero{
-    height:100vh;
+    min-height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
@@ -87,19 +105,20 @@ nav a:hover{
 }
 
 .hero h1{
+    font-family:'Orbitron', sans-serif;
     font-size:clamp(60px,10vw,120px);
     letter-spacing:12px;
     text-shadow:0 0 60px rgba(255,255,255,0.5);
 }
 
 .typing{
-    font-size:24px;
+    font-size:clamp(18px,2.2vw,28px);
     letter-spacing:3px;
     color:#cfcfcf;
     min-height:40px;
 }
 
-/* ===== BUTTON (GLOBAL) ===== */
+/* ================= BUTTON ================= */
 .btn{
     padding:18px 55px;
     border:1px solid rgba(255,255,255,0.4);
@@ -111,6 +130,7 @@ nav a:hover{
     letter-spacing:3px;
     background:rgba(0,0,0,0.4);
     transition:0.4s ease;
+    display:inline-block;
 }
 
 .btn:hover{
@@ -120,140 +140,89 @@ nav a:hover{
     transform:translateY(-3px);
 }
 
-/* ===== SERVICES CINEMATIC SECTIONS ===== */
-.service-section{
-    height:100vh;
-    display:flex;
-    align-items:center;
-    padding:0 10%;
-    background-size:cover;
-    background-position:center;
+/* ================= FLOATING ================= */
+.floating{
     position:relative;
-}
-
-.overlay{
-    position:absolute;
+    margin-top:40px;
     width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.65);
-    top:0;
-    left:0;
-}
-
-.service-content{
-    position:relative;
-    max-width:600px;
-    backdrop-filter:blur(20px);
-    background:rgba(255,255,255,0.05);
-    padding:45px;
-    border-radius:20px;
-    border:1px solid rgba(255,255,255,0.1);
-    box-shadow:0 0 40px rgba(255,255,255,0.08);
-}
-
-.service-content h1{
-    font-size:42px;
-    margin-bottom:20px;
-}
-
-/* ===== GALLERY GRID ===== */
-.gallery-section{
-    padding:120px 8%;
-}
-
-.gallery-title{
-    text-align:center;
-    font-size:50px;
-    margin-bottom:60px;
-}
-
-.gallery-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:25px;
-}
-
-.gallery-item{
-    overflow:hidden;
-    border-radius:18px;
-    cursor:pointer;
-}
-
-.gallery-item img{
-    width:100%;
-    height:280px;
-    object-fit:cover;
-    transition:0.5s ease;
-    border:1px solid rgba(255,255,255,0.08);
-}
-
-.gallery-item img:hover{
-    transform:scale(1.08);
-    filter:brightness(1.2);
-    box-shadow:0 0 40px rgba(255,255,255,0.25);
-}
-
-/* ===== CONTACT CARD ===== */
-.contact-section{
-    padding:140px 8%;
     display:flex;
     justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+    padding:0 20px 60px 20px;
 }
 
-.contact-card{
-    max-width:800px;
-    width:100%;
+.glass{
     backdrop-filter:blur(20px);
     background:rgba(255,255,255,0.05);
     border:1px solid rgba(255,255,255,0.12);
-    border-radius:25px;
-    padding:60px;
-    text-align:center;
-    box-shadow:0 0 60px rgba(255,255,255,0.08);
-}
-
-.contact-title{
-    font-size:38px;
-    margin-bottom:20px;
-}
-
-.info-box{
-    margin:25px 0;
-}
-
-.value{
-    font-family:'Orbitron', sans-serif;
-    font-weight:700;
-    font-size:24px;
-    text-shadow:0 0 10px rgba(255,255,255,0.3);
-}
-
-/* ===== FOOTER ===== */
-footer{
-    text-align:center;
-    padding:60px;
-    border-top:1px solid rgba(255,255,255,0.08);
-    color:#777;
+    padding:18px 28px;
+    border-radius:16px;
+    font-family:'Orbitron';
     letter-spacing:2px;
+    transition:0.4s;
+}
+
+.glass:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 30px rgba(255,255,255,0.25);
+}
+
+/* ================= STATS ================= */
+.stats{
+    padding:120px 20px;
+    text-align:center;
     background:#000;
 }
 
-/* ===== RESPONSIVE ===== */
-@media(max-width:768px){
+.stat-grid{
+    display:flex;
+    justify-content:center;
+    gap:60px;
+    flex-wrap:wrap;
+}
+
+.stat h3{
+    font-size:70px;
+}
+
+/* ================= MOBILE FIX ================= */
+@media (max-width:768px){
+
     .nav{
-        padding:15px 20px;
+        flex-direction:column;
+        gap:15px;
+        padding:20px;
     }
 
+    nav{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:15px;
+    }
+
+    nav a{
+        margin-left:0;
+        font-size:14px;
+    }
+
+    /* HERO TITLE FIX */
     .hero h1{
-        font-size:50px;
-        letter-spacing:6px;
+        font-size:34px;   /* reduced mobile size */
+        letter-spacing:4px;
+        line-height:1.1;
     }
 
-    .service-content{
-        padding:30px;
+    .typing{
+        font-size:16px;
     }
 
-    .contact-card{
-        padding:35px;
+    .btn{
+        padding:14px 30px;
+        font-size:13px;
+    }
+
+    .stat h3{
+        font-size:48px;
     }
 }
